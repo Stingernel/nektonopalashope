@@ -50,11 +50,18 @@ a {
     font-size: 20px;
     color: rgb(112, 111, 111);
 }
+.row .col-12 .heading select {
+    font-size: 20px;
+    color: rgb(112, 111, 111);
+}
 .input-group-text, .custom-select {
     background: #161824 !important;
     border: none;
 }
 table thead tr th span, table tbody tr td span {
+    color: #636572;
+}
+table thead tr th select, table tbody tr td select {
     color: #636572;
 }
 .badge {

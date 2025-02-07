@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin transaksi</title>
+    <link rel="shortcut icon" href="Assets/images/image.png" type="image/x-icon" />
+    <!-- ================Bootstrap================ -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+        integrity="sha384-HzLeBuhoNPvSI5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous" />
+    <!-- ================For Icons================ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-- ================Morris charts=============== -->
+    <link rel="stylesheet" href="https://www.cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+    <!-- ================Chart.js charts=============== -->
+    <script src="https://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <!-- ================Custom Css=============== -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../CSS/main-2.css" />
+    <!-- ==================map==================== -->
+    <link rel="stylesheet" href="Assets/Plugins/css/jqvmap.min.css" />
+</head>
+
+<body class="bg_body chart-text">
+    <!-- ===============navbar start=================== -->
+    <nav class="navbar navbar-expand-md navbar-light padding_x_axis">
+        <a href="#" class="pt-0">
+            <img src="Assets/images/image.png" class="com_icon" />
+        </a>
+        <button class="navbar-toggler ml-auto mt-3 bg-light btn_main" type="button" data-toggle="collapse"
+            data-target="#myNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- ============sidebar============ -->
+                    <div class="col-xl-2 col-lg-3 col-md-4 fixed-left sidebar">
+                        <div class="bottom-border pb-2 pt-2">
+                            <img src="../Assets/images/prof.png" width="40" class="rounded-circle mr-2" />
+                            <a href="#" class="text-white">corner</a>
+                        </div>
+
+                        <ul class="navbar-nav flex-column down_side accordion text_parent">
+                            <li class="nav-item mt-2" data-toggle="collapse" data-target="#collapseOne">
+                                <a href="#"
+                                    class="nav-link text-light padding_side_nav_btn mb-1 sidebarLink d-flex justify-content-between">
+                                    <div>
+                                        <i class="fa fa-dashboard fa-lg mr-2"></i>Dashboard
+                                    </div>
+                                    <div><i class="fa fa-angle-down"></i></div>
+                                </a>
+                            </li>
+                            <div class="collapse show" id="collapseOne" data-parent=".accordion">
+                                <div class="Parent">
+                                    <a class="dropdown-item sidebarLink mb-1 " href="../index.html"><i
+                                            class="fa fa-home mr-2"></i> Dashboard</a>
+
+                                </div>
+                            </div>
+
+                            <li class="nav-item" data-toggle="collapse" data-target="#collapseTwo">
+                                <a href="../widgets/widgets.html"
+                                    class="nav-link text-light padding_side_nav_btn mb-1 sidebarLink"><i
+                                        class="fa fa-th-large fa-lg mr-2"></i>Produk</a>
+                            </li>
+
+
+
+
+
+                            <li class="nav-item" data-toggle="collapse" data-target="#collapseFour">
+                                <a href="#"
+                                    class="nav-link text-light padding_side_nav_btn mb-1 sidebarLink d-flex justify-content-between">
+                                    <div><i class="fa fa-money fa-lg mr-2 active"></i>Transaksi</div>
+
+                                </a>
+                            </li>
+
+
+                            <li class="nav-item" data-toggle="collapse" data-target="#collapseFive">
+                                <a href="#"
+                                    class="nav-link text-light padding_side_nav_btn mb-1 sidebarLink d-flex justify-content-between">
+                                    <div><i class="fa fa-files-o fa-lg mr-2"></i>Rekening Penerima</div>
+                                    <div><i class="fa fa-angle-down"></i></div>
+                                </a>
+                            </li>
+                            <div class="collapse" id="collapseFive" data-parent=".accordion">
+                                <div class="Parent">
+                                    <a class="dropdown-item sidebarLink mb-1" href="#"><i
+                                            class="fa fa-cube"></i>Rekening Penerima</a>
+
+                                </div>
+                            </div>
+                    </div>
+
+
+
+
+
+
+
+
+                    <div class="collapse" id="collapseNine" data-parent=".accordion">
+                        <div class="Parent">
+                            <a class="dropdown-item sidebarLink mb-1" href="#"><i class="fa fa-sign-in"></i> Log In</a>
+                            <a class="dropdown-item sidebarLink mb-1" href="#"><i class="fa fa-sign-out"></i> Sign
+                                Up</a>
+                            <a class="dropdown-item sidebarLink mb-1" href="#"><i class="fa fa-user-circle-o"></i>
+                                Profile</a>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+                <!-- ===========sidebar stop============ -->
+
+                <!-- =============top-nav=============== -->
+                <div class="col-xl-12 col-lg-12 col-md-12 ml-auto fixed-top bg_top_nav py-2 top-navbar">
+                    <div class="row align-items-center">
+                        <div class="col-md-4">
+                            <a href="#"><img src="../Assets/images/image.png" class="front_image" /></a>
+                        </div>
+                        <div class="col-md-5">
+                            <form>
+                                <div class="input-group">
+                                    <input type="text" class="form-control search-input"
+                                        placeholder="Search info here..." />
+                                    <button type="button" class="btn btn-light search-button" data-toggle="tooltip"
+                                        data-placement="bottom" title="Search">
+                                        <i class="fa fa-search text-danger"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-3">
+                            <ul class="navbar-nav">
+                                <li class="nav-item icon-parent">
+                                    <a href="#" class="nav-link icon-bullet">
+                                        <i class="fa fa-comments text-muted fa-lg" data-toggle="tooltip"
+                                            data-placement="bottom" title="Chats"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item icon-parent">
+                                    <a href="#" class="nav-link icon-bullet">
+                                        <i class="fa fa-bell text-muted fa-lg" data-toggle="tooltip"
+                                            data-placement="right" title="Notification"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item ml-md-auto">
+                                    <div class="ml-auto">
+                                        <div class="btn-group btn_m" data-toggle="tooltip" data-placement="left"
+                                            title="Profile">
+                                            <button type="button" class="btn dropdown shadow-none"
+                                                data-toggle="dropdown">
+                                                <img src="../Assets/images/prof.png" height="40px" width="40px"
+                                                    class="rounded-circle" />
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-right box-shadow">
+                                                <a href="#"><button class="dropdown-item btn_text" type="button">
+                                                        <i class="fa fa-sign-out"></i> Sign
+                                                        out
+                                                    </button></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============stop top-nav========== -->
+            </div>
+        </div>
+        </div>
+    </nav>
+    <!-- ===============navbar stop=================== -->
+
+    <div class="col-xl-10 col-lg-9 col-md-8 ml-auto bismillah">
+        <div class="container-fluid allButFooter">
+            <section>
+                <div class="row">
+                    <div class="col-12 heading d-flex justify-content-between">
+                        <div>
+                            <h2 class="px">
+                                Dashboard<span class="Breadcrumb"></span>
+                            </h2>
+                        </div>
+                        <div class="page-date-range">
+                            <div class="input-group margin_day">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01">Date:</label>
+                                </div>
+                                <select class="custom-select edit_select" id="inputGroupSelect01">
+                                    <option selected>Hari ini (select)</option>
+                                    <option value="1">One days ago.</option>
+                                    <option value="2">Two days ago.</option>
+                                    <option value="3">Three days ago.</option>
+                                    <option value="3">1 month ago.</option>
+                                    <option value="3">Six month ago.</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ---------------------cards------------------ -->
+                    <div class="col-xl-4 col-sm-6 p-2 card_size mb-3">
+                        <div class="card card-common">
+                            <div class="m-body purple box-body content_bg body_bg">
+                                <div class="d-flex justify-content-between">
+                                    <i class="fa fa-cart-plus fa-3x text-light"></i>
+                                    <div class="text-right text-light">
+                                        <h5>Penjualan</h5>
+                                        <h3>Rp.2.000.000.00</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-secondary dark_purple">
+                                <i class="fa fa-refresh mr-1"></i>
+                                <span>Update now</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4 col-sm-6 p-2 card_size mb-3">
+                        <div class="card card-blue">
+                            <div class="m-body blue">
+                                <div class="d-flex justify-content-between">
+                                    <i class="fa fa-money fa-3x text-light"></i>
+                                    <div class="text-right text-light">
+                                        <h5>Pendapatan</h5>
+                                        <h3>Rp.1.000.000.00</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-secondary dark_blue">
+                                <i class="fa fa-refresh mr-1"></i>
+                                <span>Update now</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4 col-sm-6 p-2 card_size mb-3">
+                        <div class="card card-red">
+                            <div class="m-body red">
+                                <div class="d-flex justify-content-between">
+                                    <i class="fa fa-users fa-3x text-light"></i>
+                                    <div class="text-right text-light">
+                                        <h5>Pengguna</h5>
+                                        <h3>1000</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-secondary dark_red">
+                                <i class="fa fa-refresh mr-1"></i>
+                                <span>Update now</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4 col-sm-6 p-2 card_size mb-3 alone_card">
+                        <div class="card card-yellow">
+                            <div class="m-body yellow">
+                                <div class="d-flex justify-content-between">
+                                    <i class="fa fa-credit-card fa-3x text-light"></i>
+                                    <div class="text-right text-light">
+                                        <h5>Saldo</h5>
+                                        <h3>Rp.3.000.000.00</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-secondary dark_yellow">
+                                <i class="fa fa-refresh mr-1"></i>
+                                <span>Update now</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- =============card stop================ -->
+
+                    <!-- Line start -->
+                    <div class="col-12 mb-4">
+                        <div class="box content_bg">
+                            <div class="box-head content_bg">
+                                <h4 class="title content_bg">Grafik Transaksi</h4>
+                            </div>
+                            <div class="box-body content_bg">
+                                <div class="example-chartjs">
+                                    <canvas id="example-chartjs-line" class="chart_width"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Line End -->
+
+
+
+
+
+                    <div class="col-12 mb-4">
+                        <div class="box content_bg">
+                            <div class="box-head content_bg">
+                                <h4 class="title content_bg">Transaksi terbaru</h4>
+                            </div>
+                            <div class="box-body content_bg body_bg pb-0">
+                                <div class="table-responsive">
+                                    <table class="table table-selectable table-vertical-middle text-center">
+                                        <thead>
+                                            <tr>
+                                                <th><i class="fa fa-check-circle"></i></th>
+                                                <th><span>Tanggal</span></th>
+                                                <th><span>Jenis produk</span></th>
+                                                <th><span>Jumlah</span></th>
+                                                <th><span>Ukuran</span></th>
+                                                <th><span>Harga</span></th>
+                                                <th><span>Rp</span></th>
+                                                <th><span>Fees(%)</span></th>
+                                                <th><span>Status</span></th>
+                                                <th><span>Option</span></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th><input type="checkbox" /></th>
+                                                <td><span>13 April 2024</span></td>
+                                                <td><span>Daging Kemas</span></td>
+                                                <td><span>2</span></td>
+                                                <td><span>1/4 KG</span></td>
+                                                <td><span>100.000</span></td>
+                                                <td><span>Rp.100.000</span></td>
+                                                <td><span>89%</span></td>
+                                                <td>
+                                                    <span class="badge badge-success">Dibayar</span>
+                                                </td>
+                                                <td>
+                                                    <a href="#"><i class="fa fa-ellipsis-h"></i></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th><input type="checkbox" /></th>
+                                                <td><span>01 May 2025</span></td>
+                                                <td><span>Tulang</span></td>
+                                                <td><span>5</span></td>
+                                                <td><span>1/2 KG</span></td>
+                                                <td><span>75.000</span></td>
+                                                <td><span>Rp.75.000 </span></td>
+                                                <td><span>50%</span></td>
+                                                <td>
+                                                    <span class="badge badge-warning text-light">Proses</span>
+                                                </td>
+                                                <td>
+                                                    <a href="#"><i class="fa fa-ellipsis-h"></i></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th><input type="checkbox" checked /></th>
+                                                <td><span>17 May 20125</span></td>
+                                                <td><span>Kulit</span></td>
+                                                <td><span>4</span></td>
+                                                <td><span>1 KG</span></td>
+                                                <td><span>150.000</span></td>
+                                                <td><span>Rp.150.000</span></td>
+                                                <td><span>64%</span></td>
+                                                <td>
+                                                    <span class="badge badge-success">Dibayars</span>
+                                                </td>
+                                                <td>
+                                                    <a href="#"><i class="fa fa-ellipsis-h"></i></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th><input type="checkbox" /></th>
+                                                <td><span>21 May 2025</span></td>
+                                                <td><span>Daging</span></td>
+                                                <td><span>6</span></td>
+                                                <td><span>4 kg</span></td>
+                                                <td><span>200.000</span></td>
+                                                <td><span>RP.200.000</span></td>
+                                                <td><span>55%</span></td>
+                                                <td>
+                                                    <span class="badge badge-danger">Dibatalkan</span>
+                                                </td>
+                                                <td>
+                                                    <a href="#"><i class="fa fa-ellipsis-h"></i></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bar Start -->
+
+                    <!-- Bar End -->
+
+                    <!-- Pie Start -->
+
+                    <!-- Pie End -->
+
+
+
+                </div>
+            </section>
+        </div>
+        <!-- ------footer start-------- -->
+        <footer class="content_bg">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 text-center mt-3">
+                        <p>
+                            &copy; 2025 copyright. Made with
+                            <i class="fa fa-heart text-danger"></i> by
+                            <a href="#" class="text-primary">Corners</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ==============Bootstrap script============= -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <!-- =================Main script===============  -->
+    <script src="../js/chart.js"></script>
+    <script src="../js/style.js"></script>
+    <!-- ================morris chart==================== -->
+    <script src="../Assets/Plugins/Chart.min.js"></script>
+    <script src="../Assets/Plugins/chartjs.active.js"></script>
+    <!-- ===============Google chart=================== -->
+    <script src="../Assets/Plugins/google-chart.js"></script>
+    <script src="../Assets/Plugins/google-chart.active.js"></script>
+    <!-- ================vector map==================== -->
+    <script src="../Assets/Plugins/jquery.vmap.min.js"></script>
+    <script src="../Assets/Plugins/jquery.vmap.world.js"></script>
+    <script src="../Assets/Plugins/jquery.vmap.sampledata.js"></script>
+    <script src="../Assets/Plugins/vmap.active.js"></script>
+
+    <!-- ===========Javascript code if needed=========== -->
+</body>
+
+</html>
